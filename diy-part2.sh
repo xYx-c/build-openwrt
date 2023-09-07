@@ -20,6 +20,6 @@ sed -i 's/^IMG_PREFIX\:\=.*/IMG_PREFIX:=$(shell date +"%Y%m%d")-$(VERSION_DIST_S
 sed -i "s/R[0-9]\+\.[0-9]\+\.[0-9]\+/&("$(date +%Y-%m-%d)")/g" package/lean/default-settings/files/zzz-default-settings
 
 # update golang
-pushd feeds/packages/lang
-rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
-popd
+# pushd feeds/packages/lang
+# rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
+# popd
