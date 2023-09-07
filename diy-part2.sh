@@ -13,13 +13,7 @@
 # Modify default IP
 sed -i 's/192.168.1.1/10.5.2.1/g' package/base-files/files/bin/config_generate
 
-# 发布固件名称添加日期
-sed -i 's/^IMG_PREFIX\:\=.*/IMG_PREFIX:=$(shell date +"%Y%m%d")-$(VERSION_DIST_SANITIZED)-$(IMG_PREFIX_VERNUM)$(IMG_PREFIX_VERCODE)$(IMG_PREFIX_EXTRA)$(BOARD)$(if $(SUBTARGET),-$(SUBTARGET))/g' include/image.mk
-
-# 页面版本号添加日期
-sed -i "s/R[0-9]\+\.[0-9]\+\.[0-9]\+/&("$(date +%Y-%m-%d)")/g" package/lean/default-settings/files/zzz-default-settings
-
 # update golang
-# pushd feeds/packages/lang
-# rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
-# popd
+pushd feeds/packages/lang
+rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
+popd
