@@ -17,6 +17,6 @@ sed -i 's/192.168.1.1/10.5.2.1/g' package/base-files/files/bin/config_generate
 git clone -b master https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 
 # update golang
-pushd feeds/packages/lang
-rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
-popd
+# pushd feeds/packages/lang
+# rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
+# popd
