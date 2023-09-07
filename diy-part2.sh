@@ -20,6 +20,6 @@ rm -rf OpenClash
 
 
 # update golang
-pushd feeds/packages/lang
-rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
-popd
+# pushd feeds/packages/lang
+# rm -rf golang && svn co https://github.com/openwrt/packages/trunk/lang/golang
+# popd
