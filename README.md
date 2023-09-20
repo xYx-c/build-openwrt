@@ -32,7 +32,7 @@ Bootstrap DNS
 2400:3200::1
 ```
 
-#### lxc
+#### lxc配置
 ```
 onboot: 0
 features: nesting=1
@@ -52,7 +52,7 @@ lxc.net.1.name: eth1
 
 #### 服务
   1. openclash
-  2. adguardhome
+  2. AdguardHome
   3. ddns
   4. ~~smartDns~~
 
