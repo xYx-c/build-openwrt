@@ -11,7 +11,7 @@
 > **说明**:构建本openwrt目的是自己使用,没有太多功能比较清爽,仅仅适用我个人使用.
 
 ### 构建openwrt或[releases](https://github.com/xYx-c/build-openwrt/releases)下载
-> Fork-> Actions-> Build OpenWrt-> Run workflow
+- Fork本仓库-> Actions-> Build OpenWrt-> Run workflow
 
 ### pve8构建lxc openwrt容器
 - 进入容器,执行命令:
