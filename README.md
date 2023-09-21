@@ -43,8 +43,8 @@ lxc.mount.auto: proc:mixed sys:ro cgroup:mixed
 lxc.mount.entry: /dev/net/tun dev/net/tun none rw,bind,create=file 0 0
 lxc.mount.entry: /dev/ppp dev/ppp none rw,bind,optional,create=file 0 0
 lxc.net.0.flags: up 
-lxc.net.0.type: veth #虚拟网卡
-lxc.net.0.link: vmbr0
+lxc.net.0.type: veth 
+lxc.net.0.link: vmbr0 #虚拟网卡名
 lxc.net.0.name: eth0
 lxc.net.1.flags: up
 lxc.net.1.type: phys
