@@ -8,13 +8,13 @@
   |用户| root|
   |密码||
 
-> **说明**:构建本openwrt目的是自己使用比较清爽,没有太多功能.也没有打算做高大全的版本,仅仅适用我个人使用.
+> **说明**:构建本openwrt目的是自己使用比较清爽,没有太多功能,仅仅适用我个人使用.
 
-### 精简到只有几个个人使用的
-接口->lan->IPV6设置->本地IPV6 DNS服务器取消勾选,防止AdguradHome跳过解析ipv6地址
+### 网络配置
+接口->lan->IPV6设置->本地IPV6->**DNS服务器取消勾选**
 
-#### dns
-```config
+#### AdgHome DNS 配置
+```
 127.0.0.1:7874
 #防污染解析、
 tls://dns.pub
@@ -32,7 +32,7 @@ Bootstrap DNS
 2400:3200::1
 ```
 
-#### lxc配置
+#### pve8.0 lxc配置
 ```
 onboot: 0
 features: nesting=1
@@ -51,7 +51,7 @@ lxc.net.1.name: eth1
 ```
 
 #### 服务
-  1. openclash
+  1. OpenClash
   2. AdguardHome
   3. ddns
   4. ~~smartDns~~

@@ -12,6 +12,9 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.5.2.1/g' package/base-files/files/bin/config_generate
+ 
+# add custom packages
+echo 'src-git xYx https://github.com/xYx-c/openwrt-luci' >>feeds.conf.default
 
 # openclash packages
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash.git OpenClash
