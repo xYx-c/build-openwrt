@@ -15,7 +15,6 @@
 
 #### AdgHome DNS 配置
 ```
-# 适配openclash
 127.0.0.1:7874
 # 防污染解析、
 tls://dns.pub
