@@ -11,7 +11,7 @@
 > **说明**:构建本openwrt目的是自己使用比较清爽,没有太多功能,仅仅适用我个人使用.
 
 ### 网络配置
-接口->lan->IPV6设置->本地IPV6->**DNS服务器取消勾选**
+接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
 
 #### AdgHome DNS 配置
 ```
@@ -25,9 +25,9 @@ tls://dns.google.com
 https://dns.google/dns-query
 ——————————————————
 Bootstrap DNS
+——————————————————
 119.29.29.29
 202.96.134.133
-240e:1f:1::1
 2402:4e00::
 2400:3200::1
 ```
@@ -53,8 +53,8 @@ lxc.net.1.name: eth1
 #### 服务
   1. OpenClash
   2. AdguardHome
-  3. ddns
-  4. ~~smartDns~~
+  3. DDNS
+  4. ~~SmartDns~~
 
 ## 鸣谢
 
@@ -63,6 +63,6 @@ lxc.net.1.name: eth1
 
 > 使用了
 > 
->   2. [P3TERX大佬的云编译](https://github.com/P3TERX/Actions-OpenWrt)
->   5. 最后感谢上面使用了但未未提及的大佬们
+>   1. [P3TERX大佬的云编译](https://github.com/P3TERX/Actions-OpenWrt)
+>   2. 最后感谢上面使用了但未未提及的大佬们
 
