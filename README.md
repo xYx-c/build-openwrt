@@ -62,7 +62,6 @@ lxc.net.1.name: eth1
 - 感谢[@P3TERX](https://github.com/P3TERX)
 
 > 使用了
-> 
 >   1. [P3TERX大佬的云编译](https://github.com/P3TERX/Actions-OpenWrt)
->   2. 最后感谢上面使用了但未未提及的大佬们
+>   2. 最后感谢上面使用了但未提及的大佬们
 
