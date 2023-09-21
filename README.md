@@ -32,21 +32,40 @@ Bootstrap DNS
 2400:3200::1
 ```
 
-#### pve8.0 lxc配置
+#### pve8构建lxc openwrt容器
+进入容器,执行命令:
 ```
-onboot: 0
+pct create xxx \ # xxx容器序号
+local:vztmpl/openwrt-xxx-rootfs.tar.gz \ # 镜像文件
+--rootfs local:2 \ # 容器大小
+--ostype unmanaged \
+--hostname openwrt \
+--arch amd64 \
+--cores 4 \ # cpu
+--memory 1024 \ # 内存
+--swap 0  # 交换空间
+```
+
+#### 配置文件路径
+``` shell
+vim /etc/pve/lxc/xxx.conf
+```
+#### lxc追加配置
+>   **注意**: 网卡配置的**type**, veth为虚拟网卡, phys为真实网卡
+```
+onboot: 0 # 是开机启动 1是 0否
 features: nesting=1
 lxc.cgroup2.devices.allow: c 108:0 rwm
 lxc.mount.auto: proc:mixed sys:ro cgroup:mixed
 lxc.mount.entry: /dev/net/tun dev/net/tun none rw,bind,create=file 0 0
 lxc.mount.entry: /dev/ppp dev/ppp none rw,bind,optional,create=file 0 0
-lxc.net.0.flags: up
+lxc.net.0.flags: up # 虚拟网卡
 lxc.net.0.type: veth
 lxc.net.0.link: vmbr0
 lxc.net.0.name: eth0
 lxc.net.1.flags: up
 lxc.net.1.type: phys
-lxc.net.1.link: enp1s0
+lxc.net.1.link: enp1s0 # 真实网卡名
 lxc.net.1.name: eth1
 ```
 
