@@ -1,6 +1,6 @@
 ## 说明
 
-**本openwrt仅适用于x86_64的CPU.**
+**本openwrt仅适用于x86_64的cpu.**
 
   |名称 |说明 |
   |:----|:----|
@@ -55,7 +55,7 @@ lxc.net.1.name: eth1
 ### 网络配置
 接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
 
-### AdgHome DNS 配置
+### AdgHome DNS配置
 - 重定向53端口到AdGuardHome
 ```
 127.0.0.1:7874
