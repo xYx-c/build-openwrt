@@ -11,7 +11,7 @@
 > **说明**:构建本openwrt目的是自己使用,没有太多功能比较清爽,仅仅适用我个人使用.
 
 ### 构建openwrt或[releases](https://github.com/xYx-c/build-openwrt/releases)下载
-- fork本项目
+- Fork本项目
 - 进入Actions
 - Build OpenWrt
 - Run workflow
