@@ -13,25 +13,6 @@
 ### 网络配置
 接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
 
-#### AdgHome DNS 配置
-```
-127.0.0.1:7874
-# 防污染解析、
-tls://dns.pub
-https://dns.pub/dns-query
-tls://dns.alidns.com
-https://dns.alidns.com/dns-query
-tls://dns.google.com
-https://dns.google/dns-query
-——————————————————
-Bootstrap DNS
-——————————————————
-119.29.29.29
-202.96.134.133
-2402:4e00::
-2400:3200::1
-```
-
 #### pve8构建lxc openwrt容器
 - 进入容器,执行命令:
 ```
@@ -69,6 +50,25 @@ lxc.net.1.flags: up
 lxc.net.1.type: phys
 lxc.net.1.link: enp1s0 # 真实网卡名
 lxc.net.1.name: eth1
+```
+
+#### AdgHome DNS 配置
+```
+127.0.0.1:7874
+# 防污染解析、
+tls://dns.pub
+https://dns.pub/dns-query
+tls://dns.alidns.com
+https://dns.alidns.com/dns-query
+tls://dns.google.com
+https://dns.google/dns-query
+——————————————————
+Bootstrap DNS
+——————————————————
+119.29.29.29
+202.96.134.133
+2402:4e00::
+2400:3200::1
 ```
 
 #### 服务
