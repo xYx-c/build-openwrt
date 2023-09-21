@@ -10,10 +10,7 @@
 
 > **说明**:构建本openwrt目的是自己使用,没有太多功能比较清爽,仅仅适用我个人使用.
 
-### 网络配置
-接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
-
-#### pve8构建lxc openwrt容器
+### pve8构建lxc openwrt容器
 - 进入容器,执行命令:
 ```
 pct create xxx \ # xxx容器序号
@@ -33,26 +30,30 @@ vim /etc/pve/lxc/xxx.conf
 ```
 
 - lxc追加配置
->   **注意**: 网卡配置的**type**, veth为虚拟网卡, phys为真实网卡
+>   **注意**: 网卡配置的type, veth为虚拟网卡, phys为真实网卡
 
 ```
-onboot: 0 # 是开机启动 1是 0否
+onboot: 0 # 是否开机启动 1是 0否
 features: nesting=1
 lxc.cgroup2.devices.allow: c 108:0 rwm
 lxc.mount.auto: proc:mixed sys:ro cgroup:mixed
 lxc.mount.entry: /dev/net/tun dev/net/tun none rw,bind,create=file 0 0
 lxc.mount.entry: /dev/ppp dev/ppp none rw,bind,optional,create=file 0 0
-lxc.net.0.flags: up # 虚拟网卡
-lxc.net.0.type: veth
+lxc.net.0.flags: up 
+lxc.net.0.type: veth #虚拟网卡
 lxc.net.0.link: vmbr0
 lxc.net.0.name: eth0
 lxc.net.1.flags: up
 lxc.net.1.type: phys
-lxc.net.1.link: enp1s0 # 真实网卡名
+lxc.net.1.link: enp1s0 #真实网卡名
 lxc.net.1.name: eth1
 ```
 
-#### AdgHome DNS 配置
+### 网络配置
+接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
+
+### AdgHome DNS 配置
+- 重定向53端口到AdGuardHome
 ```
 127.0.0.1:7874
 # 防污染解析、
@@ -70,6 +71,9 @@ Bootstrap DNS
 2402:4e00::
 2400:3200::1
 ```
+
+### OpenClash配置
+插件设置-> DNS设置-> 停用*本地DNS劫持
 
 #### 服务
   1. OpenClash
