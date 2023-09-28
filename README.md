@@ -34,7 +34,6 @@ vim /etc/pve/lxc/xxx.conf
 
 - lxc追加配置
 >   **注意**: 网卡配置的type, veth为虚拟网卡, phys为真实网卡
-
 ```
 onboot: 0 # 是否开机启动 1是 0否
 features: nesting=1
@@ -53,7 +52,8 @@ lxc.net.1.name: eth1
 ```
 
 ### 从lxc openwrt中获取dhcpv6 ip
-#### /etc/systemd/system/dhcpv6.service
+> pve启动后负责拨号的openwrt还未启动，添加定时任务启动1分钟后主动获取ipv6
+- #### 创建dhcpv6.service
 ``` shell
 cat >> /etc/systemd/system/dhcpv6.service << EOF
 [Unit]
@@ -65,8 +65,7 @@ ExecStart=/usr/sbin/dhclient -6 vmbr0
 WantedBy=multi-user.target
 EOF
 ```
-
-#### /etc/systemd/system/dhcpv6.timer
+- #### 创建dhcpv6.timer
 ``` shell
 cat >> /etc/systemd/system/dhcpv6.timer << EOF
 [Unit]
@@ -76,6 +75,12 @@ After=network.target
 OnBootSec=1min
 [Install]
 WantedBy=multi-user.target
+```
+- #### 运行定时任务
+``` shell
+systemctl daemon-reload
+systemctl enable dhcpv6.timer
+systemctl start dhcpv6.timer
 ```
 
 ### 网络配置
