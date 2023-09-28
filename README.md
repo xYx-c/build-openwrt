@@ -51,7 +51,7 @@ lxc.net.1.link: enp1s0 #真实网卡名
 lxc.net.1.name: eth1
 ```
 
-### 从lxc openwrt中获取dhcpv6 ip
+### 从lxc openwrt中dhcpv6服务获取ipv6
 > pve启动后负责拨号的openwrt还未启动，添加定时任务启动1分钟后主动获取ipv6
 - #### 创建dhcpv6.service
 ``` shell
