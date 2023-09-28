@@ -75,6 +75,7 @@ After=network.target
 OnBootSec=1min
 [Install]
 WantedBy=multi-user.target
+EOF
 ```
 - #### 运行定时任务
 ``` shell
