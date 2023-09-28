@@ -52,6 +52,32 @@ lxc.net.1.link: enp1s0 #真实网卡名
 lxc.net.1.name: eth1
 ```
 
+### 从lxc openwrt中获取dhcpv6 ip
+#### /etc/systemd/system/dhcpv6.service
+``` shell
+cat >> /etc/systemd/system/dhcpv6.service << EOF
+[Unit]
+Description=OpenWrt DHCPv6 Server
+After=network.target
+[Service]
+ExecStart=/usr/sbin/dhclient -6 vmbr0
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+#### /etc/systemd/system/dhcpv6.timer
+``` shell
+cat >> /etc/systemd/system/dhcpv6.timer << EOF
+[Unit]
+Description=OpenWrt DHCPv6 Server
+After=network.target
+[Timer]
+OnBootSec=1min
+[Install]
+WantedBy=multi-user.target
+```
+
 ### 网络配置
 接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
 
