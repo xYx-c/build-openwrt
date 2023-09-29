@@ -52,7 +52,7 @@ lxc.net.1.name: eth1
 ```
 
 ### 从lxc openwrt中dhcpv6服务获取ipv6
-> pve启动后负责拨号的openwrt还未启动无法获取ipv6地址，添加定时任务系统启动1分钟后获取ipv6
+> pve启动后负责拨号的openwrt还未启动无法获取ipv6地址,添加定时任务系统启动1分钟后获取ipv6,每6小时重新尝试获取
 - #### 创建dhcpv6.service
 ``` shell
 cat >> /etc/systemd/system/dhcpv6.service << EOF
@@ -73,6 +73,7 @@ Description=OpenWrt DHCPv6 Server
 After=network.target
 [Timer]
 OnBootSec=1min
+OnUnitActiveSec=6h
 [Install]
 WantedBy=multi-user.target
 EOF
