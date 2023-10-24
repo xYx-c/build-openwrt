@@ -38,6 +38,7 @@ vim /etc/pve/lxc/xxx.conf
 onboot: 0 # 是否开机启动 1是 0否
 features: nesting=1
 lxc.cgroup2.devices.allow: c 108:0 rwm
+lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.auto: proc:mixed sys:ro cgroup:mixed
 lxc.mount.entry: /dev/net/tun dev/net/tun none rw,bind,create=file 0 0
 lxc.mount.entry: /dev/ppp dev/ppp none rw,bind,optional,create=file 0 0
@@ -52,7 +53,7 @@ lxc.net.1.name: eth1
 ```
 
 ### 从lxc openwrt中dhcpv6服务获取ipv6
-> pve启动后负责拨号的openwrt还未启动无法获取ipv6地址,添加定时任务系统启动1分钟后获取ipv6,每6小时重新尝试获取
+> pve启动后负责拨号的openwrt还未启动无法获取ipv6地址,添加定时任务系统启动3分钟后获取ipv6,每12小时重新尝试获取
 - #### 创建dhcpv6.service
 ``` shell
 cat >> /etc/systemd/system/dhcpv6.service << EOF
@@ -72,8 +73,8 @@ cat >> /etc/systemd/system/dhcpv6.timer << EOF
 Description=OpenWrt DHCPv6 Server
 After=network.target
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=6h
+OnBootSec=3min
+OnUnitActiveSec=15h
 [Install]
 WantedBy=multi-user.target
 EOF
