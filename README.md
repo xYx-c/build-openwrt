@@ -74,7 +74,7 @@ Description=OpenWrt DHCPv6 Server
 After=network.target
 [Timer]
 OnBootSec=3min
-OnUnitActiveSec=15h
+OnUnitActiveSec=12h
 [Install]
 WantedBy=multi-user.target
 EOF
