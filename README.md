@@ -89,7 +89,7 @@ systemctl start dhcpv6.timer
 ### 网络配置
 接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
 
-### lxc AdgHome配置
+### Lxc AdgHome配置
 - 创建lxc容器，指定静态ip，10.5.2.2
 - 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
 ```
