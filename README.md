@@ -86,16 +86,13 @@ systemctl enable dhcpv6.timer
 systemctl start dhcpv6.timer
 ```
 
-### 网络配置
-接口-> lan-> IPV6设置-> 本地IPV6-> **DNS服务器取消勾选**
-
 ### Lxc AdgHome配置
 - 创建lxc alpine容器，指定静态ip，10.5.2.2
 - 进入容器执行
 ```
 wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
 ```
-- 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
+
 - 配置上游dns
 ```
 [/*.lan/]10.5.2.1 #解析本地设备
@@ -113,6 +110,10 @@ Bootstrap DNS
 2402:4e00::
 2400:3200::1
 ```
+
+### 网络配置
+- 接口 >> lan >> IPV6设置 >> 本地IPV6 >> **DNS服务器取消勾选**
+- 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
 
 ### OpenClash配置
 插件设置-> DNS设置-> 停用*本地DNS劫持
