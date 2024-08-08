@@ -92,27 +92,27 @@ systemctl start dhcpv6.timer
 ### Lxc AdgHome配置
 - 创建lxc alpine容器，指定静态ip，10.5.2.2
 - 进入容器执行
-  ```
-  wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
-  ```
+```
+wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
+```
 - 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
 - 配置上游dns
-  ```
-  [/*.lan/]10.5.2.1 #解析本地设备
-  tls://dns.pub
-  https://dns.pub/dns-query
-  tls://dns.alidns.com
-  https://dns.alidns.com/dns-query
-  tls://dns.google.com
-  https://dns.google/dns-query
-  ——————————————————
-  Bootstrap DNS
-  ——————————————————
-  119.29.29.29
-  202.96.134.133
-  2402:4e00::
-  2400:3200::1
-  ```
+```
+[/*.lan/]10.5.2.1 #解析本地设备
+tls://dns.pub
+https://dns.pub/dns-query
+tls://dns.alidns.com
+https://dns.alidns.com/dns-query
+tls://dns.google.com
+https://dns.google/dns-query
+——————————————————
+Bootstrap DNS
+——————————————————
+119.29.29.29
+202.96.134.133
+2402:4e00::
+2400:3200::1
+```
 
 ### OpenClash配置
 插件设置-> DNS设置-> 停用*本地DNS劫持
