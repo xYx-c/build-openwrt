@@ -48,7 +48,7 @@ lxc.net.0.link: eth0
 lxc.net.0.name: eth0
 lxc.net.1.flags: up 
 lxc.net.1.type: veth 
-lxc.net.1.link: vmbr0 # 真实网卡名
+lxc.net.1.link: eth0 # 真实网卡名
 lxc.net.1.name: eth1
 ```
 
