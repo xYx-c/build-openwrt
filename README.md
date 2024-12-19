@@ -116,6 +116,20 @@ Bootstrap DNS
 - 接口 >> lan >> IPV6设置 >> 本地IPV6 >> **DNS服务器取消勾选**
 - 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
 
+### NAT回环失效修复，ssh到openwrt
+```
+vim /etc/sysctl.conf
+```
+```
+# 追加
+net.bridge.bridge-nf-call-arptables = 0
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-iptables = 0
+```
+```
+sysctl -p
+```
+
 ### OpenClash配置
 插件设置-> DNS设置-> 停用*本地DNS劫持
 
