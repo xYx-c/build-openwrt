@@ -130,9 +130,6 @@ net.bridge.bridge-nf-call-iptables = 0
 sysctl -p
 ```
 
-### OpenClash配置
-插件设置-> DNS设置-> 停用*本地DNS劫持
-
 #### 服务
   1. OpenClash
   2. ~~AdguardHome~~
