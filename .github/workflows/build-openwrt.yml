@@ -19,8 +19,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-     - cron: '0 1 1 * *'
+  #schedule:
+  #   - cron: '0 1 1 * *'
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
@@ -29,7 +29,7 @@ env:
   CONFIG_FILE: x86-64.config
   CUSTOM_SH: custom.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
