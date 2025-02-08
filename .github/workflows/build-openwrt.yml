@@ -28,8 +28,8 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86-64.config
   CUSTOM_SH: custom.sh
-  #UPLOAD_BIN_DIR: false
-  #UPLOAD_FIRMWARE: false
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -103,26 +103,26 @@ jobs:
       if: (!cancelled())
       run: df -hT
 
-    #- name: Upload bin directory
-    #  uses: actions/upload-artifact@main
-    #  if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-    #  with:
-    #    name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-    #    path: openwrt/bin
+    - name: Upload bin directory
+      uses: actions/upload-artifact@main
+      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      with:
+        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: openwrt/bin
 
-    #- name: Organize files
-    #  id: organize
-    #  if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-    #  run: |
-    #    cd openwrt/bin/targets/*/*
-    #    rm -rf packages
-    #    echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-    #    echo "status=success" >> $GITHUB_OUTPUT
+    - name: Organize files
+      id: organize
+      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      run: |
+        mkdir -p openwrt/bin/targets/x86/64
+        cd openwrt/bin/targets/*/*
+        rm -rf packages
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+        echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
-      #if: steps.organize.outputs.status == 'success' && !cancelled()
-      if: (!cancelled())
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
