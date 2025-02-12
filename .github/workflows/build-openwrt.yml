@@ -116,7 +116,6 @@ jobs:
       run: |
         mkdir -p openwrt/bin/targets/x86/64
         cd openwrt/bin/targets/*/*
-        rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
