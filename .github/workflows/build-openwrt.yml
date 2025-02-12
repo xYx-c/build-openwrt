@@ -19,12 +19,12 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  #   - cron: '0 1 1 * *'
+  schedule:
+     - cron: '0 1 1 * *'
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: v24.10.0
+  REPO_BRANCH: openwrt-24.10
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86-64.config
   CUSTOM_SH: custom.sh
@@ -54,7 +54,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_URL -b $REPO_BRANCH openwrt --depth=1
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Update feeds
