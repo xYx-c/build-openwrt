@@ -97,15 +97,16 @@ wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome
 - 配置上游dns
 ```
 [/*.lan/]10.5.2.1 #解析本地设备
-tls://dns.pub
-https://dns.pub/dns-query
-tls://dns.alidns.com
-https://dns.alidns.com/dns-query
-tls://dns.google.com
-https://dns.google/dns-query
+tls://120.53.53.53
+https://120.53.53.53/dns-query
+tls://223.6.6.6
+https://223.6.6.6/dns-query
+tls://8.8.4.4
+https://8.8.4.4/dns-query
 ——————————————————
 Bootstrap DNS
 ——————————————————
+223.5.5.5
 119.29.29.29
 202.96.134.133
 2402:4e00::
