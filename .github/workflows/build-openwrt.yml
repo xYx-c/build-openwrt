@@ -24,7 +24,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_BRANCH: v24.10.0
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86-64.config
   CUSTOM_SH: custom.sh
